@@ -1,0 +1,22 @@
+{
+  "position": 1,
+  "username": "GNetz",
+  "rating": "1865",
+  "wins": "327",
+  "loses": "96",
+  "draws": "0",
+  "experience": "1135",
+  "matches": [
+    {
+      "opponent": "Aniram",
+      "playerDeck": "Red Eyes",
+      "opponentDeck": "Dogmatika Invoked Shaddoll",
+      "result": "LOST",
+      "duration": "12:44",
+      "date": "06-10-2021",
+      "type": "MATCH",
+      "log": "32567250",
+      "replay": "https://www.duelingbook.com/replay?id=32567250"
+    }
+  ]
+}

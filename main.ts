@@ -3,6 +3,7 @@ import { List, User, RankingT } from './src/utils/types.ts';
 import { urlPadronize } from './src/utils/formatters.ts';
 
 const top100 = await JSON.parse(Deno.readTextFileSync('./top100.json'));
+
 const normalizeTop: User[] = top100.results
   .map(
     (
@@ -20,12 +21,15 @@ const normalizeTop: User[] = top100.results
       };
     }
   )
-  .slice(0, 2);
-console.timeEnd('get html');
+  .slice(0, 1);
 try {
   console.time('request');
+
   const result = await Promise.all(
     normalizeTop.map(async ({ username }, index) => {
+      console.log(
+        `--------------------${username.toUpperCase()}:${index}--------------------`
+      );
       const url = `https://www.ygoscope.com/playerProfile?player=${urlPadronize(
         username
       )}`;
@@ -43,7 +47,7 @@ try {
         .map(({ href }) => href)
         .filter((e) => e.includes('replay?'));
 
-      console.log('get get table headers');
+      console.log('get table headers');
 
       const tableHeader = $('th')
         .toArray()
@@ -67,7 +71,7 @@ try {
 
           return list;
         }, [])
-        .splice(0, 2);
+        .splice(0, 1);
 
       return { ...normalizeTop[index], matches: output };
     })

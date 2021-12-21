@@ -1,18 +1,31 @@
 import { Application, Router } from 'https://deno.land/x/oak/mod.ts';
-import { output } from './main.ts';
+const FirestoreStore = require('firestore-store')(session);
 
-const app = new Application();
-const router = new Router();
-const response = await JSON.stringify(output);
+const firebaseConfig = {
+  apiKey: 'AIzaSyC0XgWP0vnvAvQEC81rQQo2YQYTg23b9wA',
+  authDomain: 'ygohrbr.firebaseapp.com',
+  projectId: 'ygohrbr',
+  storageBucket: 'ygohrbr.appspot.com',
+  messagingSenderId: '344419463175',
+  appId: '1:344419463175:web:f339b5243861f09d3a3aa2',
+};
 
-app.use(async (ctx, next) => {
-  await next();
+const app = initializeApp(firebaseConfig);
+console.log(firebaseApp);
+// const app = new Application();
+// const router = new Router();
+// const response = await JSON.stringify(output);
 
-  console.log(`${ctx.request.method} ${ctx.request.url}`);
-});
+// app.use(async (ctx, next) => {
+//   await next();
 
-router.get('/', (ctx) => (ctx.response.body = response));
+//   console.log(`${ctx.request.method} ${ctx.request.url}`);
+// });
 
-app.use(router.routes());
+// router.get('/', (ctx) => (ctx.response.body = response));
 
-await app.listen({ port: 9090 });
+// app.use(router.routes());
+
+// await app.listen({ port: 9090 });
+
+// const { data, error } = await supabase.from('players');
