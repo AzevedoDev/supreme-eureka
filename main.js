@@ -1,15 +1,10 @@
 import { cheerio } from 'https://deno.land/x/cheerio@1.0.4/mod.ts';
-import { List, User, RankingT } from './src/utils/types.ts';
 import { urlPadronize } from './src/utils/formatters.ts';
+import { getTopFromDB } from './wsclientside.ts';
 
-const top100 = await JSON.parse(Deno.readTextFileSync('./top100.json'));
-
-const normalizeTop: User[] = top100.results
-  .map(
-    (
-      { entry1, entry2, entry3, entry4, entry5, entry6 }: RankingT,
-      index: number
-    ) => {
+try {
+  const organizePlayers = ({ results }) =>
+    results.map(({ entry1, entry2, entry3, entry4, entry5, entry6 }, index) => {
       return {
         position: index + 1,
         username: entry1,
@@ -19,16 +14,18 @@ const normalizeTop: User[] = top100.results
         draws: entry5,
         experience: entry6,
       };
-    }
-  )
-  .slice(0, 1);
-try {
+    });
+
+  const top = await getTopFromDB().then(organizePlayers);
+
   console.time('request');
 
   const result = await Promise.all(
-    normalizeTop.map(async ({ username }, index) => {
+    top.map(async ({ username }, index) => {
       console.log(
-        `--------------------${username.toUpperCase()}:${index}--------------------`
+        `--------------------${username.toUpperCase()}:${
+          index + 1
+        }--------------------`
       );
       const url = `https://www.ygoscope.com/playerProfile?player=${urlPadronize(
         username
@@ -60,7 +57,7 @@ try {
       const headersLength = tableHeader.length;
 
       const output = data
-        .reduce((list: List[], value, index) => {
+        .reduce((list, value, index) => {
           const listIndex = Math.floor(index / headersLength);
           const key = tableHeader[index % headersLength];
 
@@ -71,9 +68,9 @@ try {
 
           return list;
         }, [])
-        .splice(0, 1);
+        .splice(0, 19);
 
-      return { ...normalizeTop[index], matches: output };
+      return { ...top[index], matches: output };
     })
   );
   console.timeEnd('request');
@@ -84,7 +81,7 @@ try {
 
 // pesquisa um dia
 // console.log(
-//   normalizeTop.find(({ username }: { username: string }) =>
+//   top.find(({ username }: { username: string }) =>
 //     username.includes('Aquino')
 //   )
 // );

@@ -1,5 +1,4 @@
 import { Application, Router } from 'https://deno.land/x/oak/mod.ts';
-const FirestoreStore = require('firestore-store')(session);
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC0XgWP0vnvAvQEC81rQQo2YQYTg23b9wA',

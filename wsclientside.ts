@@ -1,46 +1,55 @@
-function createWebSocket() {
-  const headers = {
-    action: 'Logged in',
-    admin: false,
-    firstLogin: false,
-    logins: null,
-    password: 'ccd1c0444ad4a905d4526bea635710ef2ee21c0e',
-    user_id: 737800,
-    username: 'azevedo',
-  };
+export function getTopFromDB() {
+  return new Promise<any>((resolve, reject) => {
+    try {
+      const websocket = new WebSocket('ws://duel.duelingbook.com:8443');
 
-  const websocket = new WebSocket('wss://duel.duelingbook.com:8443');
+      const connect = JSON.stringify({
+        action: 'Connect',
+        username: 'azevedo',
+        password: '5480cd5648e39c9adfcdeedfab4ed2a4b6adbda8',
+        db_id: 'v2apyqu1q5aptvj5uq8n8u3x7d3c7roa',
+        session: 'baxot7kfqteyx886s8xpoz6qmcebasdx',
+        administrate: false,
+        version: 573,
+        capabilities: '',
+        remember_me: 0,
+        connect_time: 0,
+        fingerprint: 0,
+        html_client: true,
+        mobile: false,
+        browser: 'Chrome',
+        platform: 'PC',
+        degenerate: false,
+        revamped: true,
+      });
 
-  websocket.onopen = () => {
-    console.log('connected');
-  };
-  websocket.onmessage = (message) => {
-    console.log(message.data);
-  };
-}
-createWebSocket();
+      const enterToRanking = JSON.stringify({
+        action: 'Ranking by rating',
+        matches: true,
+        period: 'current',
+        format: 'ar',
+        location: '',
+      });
 
-function connectHandler() {
-  Send({
-    action: 'Connect',
-    username: username,
-    password: password,
-    db_id: db_id,
-    session: session_id,
-    administrate: administrate,
-    version: VERSION,
-    capabilities: '',
-    remember_me: remember_me,
-    connect_time: connect_time,
-    fingerprint: 0,
-    html_client: true,
-    mobile: mobile,
-    browser: getBrowser(),
-    platform: getPlatform(),
-    degenerate: degenerate,
-    revamped: revamped,
+      websocket.onopen = () => {
+        console.log('connected');
+        console.log('Enter to DB');
+        websocket.send(connect);
+        console.log('Enter to Ranking');
+        websocket.send(enterToRanking);
+      };
+      websocket.onmessage = (message) => {
+        const convertedResult = JSON.parse(message.data);
+        if (convertedResult.action === 'Ranking by rating') {
+          resolve(convertedResult);
+          websocket.close();
+        }
+      };
+      websocket.onclose = () => {
+        console.log('Closed connection');
+      };
+    } catch (e) {
+      reject(e);
+    }
   });
-  got_heartbeat = true;
-  heartbeat_timer.start();
-  timeout_timer.start();
 }
