@@ -4,17 +4,20 @@ import { getTopFromDB } from './wsclientside.ts';
 
 try {
   const organizePlayers = ({ results }) =>
-    results.map(({ entry1, entry2, entry3, entry4, entry5, entry6 }, index) => {
-      return {
-        position: index + 1,
-        username: entry1,
-        rating: entry2,
-        wins: entry3,
-        loses: entry4,
-        draws: entry5,
-        experience: entry6,
-      };
-    });
+    results
+      .map(({ entry1, entry2, entry3, entry4, entry5, entry6 }, index) => {
+        return {
+          position: index + 1,
+          username: entry1,
+          rating: entry2,
+          wins: entry3,
+          loses: entry4,
+          draws: entry5,
+          experience: entry6,
+          lastUpdate: new Date().toISOString(),
+        };
+      })
+      .splice(0, 20);
 
   const top = await getTopFromDB().then(organizePlayers);
 
@@ -74,7 +77,20 @@ try {
     })
   );
   console.timeEnd('request');
-  console.log(result);
+  function writeJson(path, data) {
+    try {
+      Deno.writeTextFileSync(path, JSON.stringify(data));
+      return 'Written to ' + path;
+    } catch (e) {
+      return e.message;
+    }
+  }
+  const text = `${Deno.cwd()}/data/`;
+
+  if (!text.includes('/data/')) {
+    Deno.mkdirSync(`${Deno.cwd()}/data`);
+  }
+  writeJson(`./data/results-${Date.now()}.json`, result);
 } catch (error) {
   console.error(error);
 }
