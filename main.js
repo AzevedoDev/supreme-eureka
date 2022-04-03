@@ -17,64 +17,68 @@ try {
           lastUpdate: new Date().toISOString(),
         };
       })
-      .splice(0, 20);
+      .splice(0, 50);
 
   const top = await getTopFromDB().then(organizePlayers);
 
   console.time('request');
 
   const result = await Promise.all(
-    top.map(async ({ username }, index) => {
-      console.log(
-        `--------------------${username.toUpperCase()}:${
-          index + 1
-        }--------------------`
-      );
-      const url = `https://www.ygoscope.com/playerProfile?player=${urlPadronize(
-        username
-      )}`;
-      const htmlNormalized = await (await fetch(url)).text();
-      const $ = cheerio.load(htmlNormalized);
-      console.log('get data from fetch');
-      const data = $('td')
-        .toArray()
-        .map((e) => $(e).text().trim().replace('\n', '').replace(/\s+/g, ' '));
+    top
+      .push({ username: 'ReichYGO' }, { username: 'Paulo "PRRJ" Goncalves' })
+      .map(async ({ username }, index) => {
+        console.log(
+          `--------------------${username.toUpperCase()}:${
+            index + 1
+          }--------------------`
+        );
+        const url = `https://www.ygoscope.com/playerProfile?player=${urlPadronize(
+          username
+        )}`;
+        const htmlNormalized = await (await fetch(url)).text();
+        const $ = cheerio.load(htmlNormalized);
+        console.log('get data from fetch');
+        const data = $('td')
+          .toArray()
+          .map((e) =>
+            $(e).text().trim().replace('\n', '').replace(/\s+/g, ' ')
+          );
 
-      console.log('get replays from data');
-      const replays = $('td a')
-        .toArray()
-        .map((e) => $(e).attr())
-        .map(({ href }) => href)
-        .filter((e) => e.includes('replay?'));
+        console.log('get replays from data');
+        const replays = $('td a')
+          .toArray()
+          .map((e) => $(e).attr())
+          .map(({ href }) => href)
+          .filter((e) => e.includes('replay?'));
 
-      console.log('get table headers');
+        console.log('get table headers');
 
-      const tableHeader = $('th')
-        .toArray()
-        .map((e) => $(e).text().trim().toLocaleLowerCase())
-        .map((e) => (e === '' ? 'replay' : e))
-        .map((e) => (e === 'player deck' ? 'playerDeck' : e))
-        .map((e) => (e === 'opponent deck' ? 'opponentDeck' : e))
-        .filter((e) => e !== 'count' && e !== 'name');
+        const tableHeader = $('th')
+          .toArray()
+          .map((e) => $(e).text().trim().toLocaleLowerCase())
+          .map((e) => (e === '' ? 'replay' : e))
+          .map((e) => (e === 'player deck' ? 'playerDeck' : e))
+          .map((e) => (e === 'opponent deck' ? 'opponentDeck' : e))
+          .filter((e) => e !== 'count' && e !== 'name');
 
-      const headersLength = tableHeader.length;
+        const headersLength = tableHeader.length;
 
-      const output = data
-        .reduce((list, value, index) => {
-          const listIndex = Math.floor(index / headersLength);
-          const key = tableHeader[index % headersLength];
+        const output = data
+          .reduce((list, value, index) => {
+            const listIndex = Math.floor(index / headersLength);
+            const key = tableHeader[index % headersLength];
 
-          list[listIndex] = list[listIndex] || {};
-          list[listIndex][key] = value;
-          list[listIndex][key] === 'Replay' &&
-            (list[listIndex][key] = replays[listIndex]);
+            list[listIndex] = list[listIndex] || {};
+            list[listIndex][key] = value;
+            list[listIndex][key] === 'Replay' &&
+              (list[listIndex][key] = replays[listIndex]);
 
-          return list;
-        }, [])
-        .splice(0, 19);
+            return list;
+          }, [])
+          .splice(0, 19);
 
-      return { ...top[index], matches: output };
-    })
+        return { ...top[index], matches: output };
+      })
   );
   console.timeEnd('request');
   function writeJson(path, data) {
@@ -90,7 +94,7 @@ try {
   if (!text.includes('/data/')) {
     Deno.mkdirSync(`${Deno.cwd()}/data`);
   }
-  writeJson(`./data/results-${Date.now()}.json`, result);
+  writeJson(`./data/results.json`, result);
 } catch (error) {
   console.error(error);
 }

@@ -1,0 +1,1 @@
+RUN deno run --allow-net --allow-write --allow-read main.js
