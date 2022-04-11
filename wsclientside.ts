@@ -7,10 +7,10 @@ export function getTopFromDB() {
         action: 'Connect',
         username: 'azevedo',
         password: '5480cd5648e39c9adfcdeedfab4ed2a4b6adbda8',
-        db_id: 'v2apyqu1q5aptvj5uq8n8u3x7d3c7roa',
-        session: 'baxot7kfqteyx886s8xpoz6qmcebasdx',
+        db_id: 'w6q7mw05yb90xf2u0ghf6trf7r62un38',
+        session: 'r6pi9pabcuty18mo62d4n1y9kkntjbae',
         administrate: false,
-        version: 573,
+        version: 620,
         capabilities: '',
         remember_me: 0,
         connect_time: 0,
@@ -39,6 +39,7 @@ export function getTopFromDB() {
         websocket.send(enterToRanking);
       };
       websocket.onmessage = (message) => {
+        console.log('message', message);
         const convertedResult = JSON.parse(message.data);
         if (convertedResult.action === 'Ranking by rating') {
           resolve(convertedResult);
