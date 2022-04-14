@@ -39,7 +39,6 @@ export function getTopFromDB() {
         websocket.send(enterToRanking);
       };
       websocket.onmessage = (message) => {
-        console.log('message', message);
         const convertedResult = JSON.parse(message.data);
         if (convertedResult.action === 'Ranking by rating') {
           resolve(convertedResult);
