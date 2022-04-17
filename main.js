@@ -17,7 +17,7 @@ try {
           lastUpdate: new Date().toISOString(),
         };
       })
-      .splice(0, 150);
+      .splice(0, 120);
 
   const top = await getTopFromDB().then(organizePlayers);
 
