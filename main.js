@@ -17,13 +17,36 @@ try {
           lastUpdate: new Date().toISOString(),
         };
       })
-      .splice(0, 120);
+      .splice(0, 100);
 
   const top = await getTopFromDB().then(organizePlayers);
 
   console.time('request');
+  const newtop = [
+    ...top,
+    {
+      position: top.length + 1,
+      username: 'ReichYGO',
+      rating: '0',
+      wins: '0',
+      loses: '0',
+      draws: '0',
+      experience: '0',
+      lastUpdate: new Date().toISOString(),
+    },
+    {
+      position: top.length + 2,
+      username: 'Paulo "PRRJ" Goncalves',
+      rating: '0',
+      wins: '0',
+      loses: '0',
+      draws: '0',
+      experience: '0',
+      lastUpdate: new Date().toISOString(),
+    },
+  ];
   const result = await Promise.all(
-    top.map(async ({ username }, index) => {
+    newtop.map(async ({ username }, index) => {
       console.log(
         `--------------------${username.toUpperCase()}:${
           index + 1
@@ -72,7 +95,7 @@ try {
         }, [])
         .splice(0, 19);
 
-      return { ...top[index], matches: output };
+      return { ...newtop[index], matches: output };
     })
   );
   console.timeEnd('request');
