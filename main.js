@@ -45,13 +45,11 @@ try {
       lastUpdate: new Date().toISOString(),
     },
   ];
+
+  console.table(newtop)
+
   const result = await Promise.all(
     newtop.map(async ({ username }, index) => {
-      console.log(
-        `--------------------${username.toUpperCase()}:${
-          index + 1
-        }--------------------`
-      );
       const url = `https://www.ygoscope.com/playerProfile?player=${urlPadronize(
         username
       )}`;
@@ -94,7 +92,7 @@ try {
           return list;
         }, [])
         .splice(0, 19);
-
+      if (output.length === 0) console.error('Warning')
       return { ...newtop[index], matches: output };
     })
   );
