@@ -44,6 +44,16 @@ try {
       experience: '0',
       lastUpdate: new Date().toISOString(),
     },
+    {
+      position: top.length + 3,
+      username: 'jerome904',
+      rating: '0',
+      wins: '0',
+      loses: '0',
+      draws: '0',
+      experience: '0',
+      lastUpdate: new Date().toISOString(),
+    },
   ];
 
   console.table(newtop);
