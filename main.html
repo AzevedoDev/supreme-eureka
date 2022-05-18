@@ -1,1070 +1,1072 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>YGOscope - Player Profile</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./css/index.css" />
-    <link rel="shortcut icon" href="assets/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css"/>
+    <link rel="shortcut icon" href="assets/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-113878879-1"
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-113878879-1"
     ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag("config", "UA-113878879-1");
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+
+        gtag("config", "UA-113878879-1");
     </script>
-  </head>
+</head>
 
-  <body>
-    <header>
-      <div id="container">
+<body>
+<header>
+    <div id="container">
         <div class="bg-div">
-          <a href="https://www.ygoscope.com/"
+            <a href="https://www.ygoscope.com/"
             ><img src="./assets/scopelogonav.png" alt="image"
-          /></a>
+            /></a>
 
-          <nav class="nav navbar-nav navbar-right">
-            <ul>
-              <li>
-                <form action="./search">
-                  <input
-                    style="
+            <nav class="nav navbar-nav navbar-right">
+                <ul>
+                    <li>
+                        <form action="./search">
+                            <input
+                                    style="
                       font-size: 13px;
                       height: 30px;
                       width: 200px;
                       color: black;
                     "
-                    class="navbar-form"
-                    type="text"
-                    name="term"
-                    placeholder="DB username search..."
-                  />
-                </form>
-              </li>
-              <li class="font-black">
-                <button type="submit" class="btn btn-primary navbar-btn">
-                  Search
-                </button>
-              </li>
-              <li><a href="explorer">Card Statistics</a></li>
-              <li><a href="newformat">Current Format Data</a></li>
-              <li><a href="lastformat">Previous Format</a></li>
-            </ul>
-          </nav>
+                                    class="navbar-form"
+                                    type="text"
+                                    name="term"
+                                    placeholder="DB username search..."
+                            />
+                        </form>
+                    </li>
+                    <li class="font-black">
+                        <button type="submit" class="btn btn-primary navbar-btn">
+                            Search
+                        </button>
+                    </li>
+                    <li><a href="explorer">Card Statistics</a></li>
+                    <li><a href="newformat">Current Format Data</a></li>
+                    <li><a href="lastformat">Previous Format</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-    </header>
-    <br />
-    <br />
-    <div id="profile-container">
-      <div id="player-profile">
+    </div>
+</header>
+<br/>
+<br/>
+<div id="profile-container">
+    <div id="player-profile">
         <h2>Player Profile</h2>
         <div id="player-card">
-          <h1>youngest Thief II</h1>
-          <hr />
-          <div class="profile-center">
-            <p>Stats - Last 20 games</p>
-            <p>Wins: 16 - Losses: 4 - Win Rate: 80%</p>
-            <p>MMR: Coming Soon</p>
-          </div>
+            <h1>youngest Thief II</h1>
+            <hr/>
+            <div class="profile-center">
+                <p>Stats - Last 20 games</p>
+                <p>Wins: 16 - Losses: 4 - Win Rate: 80%</p>
+                <p>MMR: Coming Soon</p>
+            </div>
         </div>
-        <hr />
+        <hr/>
         <h2>Last 20 Games</h2>
         <div id="player-match-history">
-          <table
-            style="
+            <table
+                    style="
               border-collapse: separate;
               border-spacing: 5px;
               background-color: #153162;
               border: 1px solid white;
             "
-          >
-            <tbody>
-              <tr style="border: solid 1px white"></tr>
-            </tbody>
-            <colgroup>
-              <col width="150" />
-              <col width="150" />
-              <col width="150" />
-              <col width="150" />
-              <col width="150" />
-              <col width="150" />
-              <col width="150" />
-            </colgroup>
-            <tbody>
-              <tr>
-                <th>Opponent</th>
-                <th>Player Deck</th>
-                <th>Opponent Deck</th>
-                <th>Result</th>
-                <th>Duration</th>
-                <th>Date</th>
-                <th>Type</th>
-                <th>Log</th>
-                <th></th>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=whybotherthere"
-                    >whybotherthere</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
-                    Swordsoul Tenyi</a
-                  >
-                </td>
-                <td>
-                  <a
-                    href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
-                  >
-                    Swordsoul Tenyi Yang Zing</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>13:45</td>
-                <td>05-12-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=34473786">34473786</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=34473786"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=ShootingBLS">ShootingBLS</a>
-                </td>
-                <td>
-                  <a
-                    href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
-                  >
-                    Swordsoul Tenyi Yang Zing</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Artifact Sky Striker&amp;dataType=D">
-                    Artifact Sky Striker</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>39:20</td>
-                <td>26-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=34197706">34197706</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=34197706"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=Madison+Beer">Madison Beer</a>
-                </td>
-                <td>
-                  <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
-                    Swordsoul Tenyi</a
-                  >
-                </td>
-                <td>
-                  <a
-                    href="dataPage?name= Dogmatika HERO Invoked&amp;dataType=D"
-                  >
-                    Dogmatika HERO Invoked</a
-                  >
-                </td>
-                <td style="background-color: red; text-align: center">LOST</td>
-                <td>25:09</td>
-                <td>25-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=34174369">34174369</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=34174369"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=Thottie_Pippenn"
-                    >Thottie_Pippenn</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
-                    Swordsoul Tenyi</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Prank Kids&amp;dataType=D">
-                    Prank Kids</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>42:54</td>
-                <td>25-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=34175444">34175444</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=34175444"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td><a href="playerProfile?player=HomeroDB">HomeroDB</a></td>
-                <td>
-                  <a
-                    href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
-                  >
-                    Swordsoul Tenyi Yang Zing</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Dinosaur HERO&amp;dataType=D">
-                    Dinosaur HERO</a
-                  >
-                </td>
-                <td style="background-color: red; text-align: center">LOST</td>
-                <td>16:10</td>
-                <td>22-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=34082106">34082106</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=34082106"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=elijahthebear">elijahthebear</a>
-                </td>
-                <td>
-                  <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
-                    Swordsoul Tenyi</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Tri Brigade&amp;dataType=D">
-                    Tri Brigade</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>20:05</td>
-                <td>22-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=34062914">34062914</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=34062914"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td><a href="playerProfile?player=Escapery">Escapery</a></td>
-                <td>
-                  <a href="dataPage?name= Swordsoul&amp;dataType=D">
-                    Swordsoul</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Dogmatika Invoked&amp;dataType=D">
-                    Dogmatika Invoked</a
-                  >
-                </td>
-                <td style="background-color: red; text-align: center">LOST</td>
-                <td>22:35</td>
-                <td>22-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=34081351">34081351</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=34081351"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=JimmyWheeler">JimmyWheeler</a>
-                </td>
-                <td>
-                  <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
-                    Swordsoul Tenyi</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
-                    Swordsoul Tenyi</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>14:37</td>
-                <td>22-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=34082646">34082646</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=34082646"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=Richard+Freitag"
-                    >Richard Freitag</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
-                    Swordsoul Tenyi</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Drytron HERO&amp;dataType=D">
-                    Drytron HERO</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>28:47</td>
-                <td>22-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=34067344">34067344</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=34067344"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=loli+enthusiast"
-                    >loli enthusiast</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
-                    Swordsoul Tenyi</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= HERO Tri Brigade&amp;dataType=D">
-                    HERO Tri Brigade</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>23:44</td>
-                <td>22-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=34083229">34083229</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=34083229"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=%7BLiGhT_KinGs%7DCptnFleming"
-                    >{LiGhT_KinGs}CptnFleming</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
-                    Swordsoul Tenyi</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Altergeist&amp;dataType=D">
-                    Altergeist</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>22:09</td>
-                <td>17-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=33917634">33917634</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=33917634"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=I%27m+Sorry+Ms.+Jackson"
-                    >I&apos;m Sorry Ms. Jackson</a
-                  >
-                </td>
-                <td>
-                  <a
-                    href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
-                  >
-                    Swordsoul Tenyi Yang Zing</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= HERO Tri Brigade&amp;dataType=D">
-                    HERO Tri Brigade</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>24:19</td>
-                <td>16-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=33893375">33893375</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=33893375"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td><a href="playerProfile?player=iLoveBeer">iLoveBeer</a></td>
-                <td>
-                  <a
-                    href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
-                  >
-                    Swordsoul Tenyi Yang Zing</a
-                  >
-                </td>
-                <td>
-                  <a
-                    href="dataPage?name= Red Eyes Rokket Guardragon&amp;dataType=D"
-                  >
-                    Red Eyes Rokket Guardragon</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>44:47</td>
-                <td>15-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=33839499">33839499</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=33839499"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td><a href="playerProfile?player=kd%2335">kd#35</a></td>
-                <td>
-                  <a
-                    href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
-                  >
-                    Swordsoul Tenyi Yang Zing</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Floowandereeze&amp;dataType=D">
-                    Floowandereeze</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>26:47</td>
-                <td>14-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=33822791">33822791</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=33822791"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td><a href="playerProfile?player=Innitbruv">Innitbruv</a></td>
-                <td>
-                  <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
-                    Swordsoul Tenyi</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Prank Kids&amp;dataType=D">
-                    Prank Kids</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>30:43</td>
-                <td>12-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=33742668">33742668</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=33742668"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td><a href="playerProfile?player=hera">hera</a></td>
-                <td>
-                  <a
-                    href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
-                  >
-                    Swordsoul Tenyi Yang Zing</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name= Sky Striker&amp;dataType=D">
-                    Sky Striker</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>45:52</td>
-                <td>12-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=33750197">33750197</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=33750197"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=%23OPUURPPPP%21">#OPUURPPPP!</a>
-                </td>
-                <td>
-                  <a
-                    href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
-                  >
-                    Swordsoul Tenyi Yang Zing</a
-                  >
-                </td>
-                <td>
-                  <a
-                    href="dataPage?name= Sky Striker Swordsoul Tenyi&amp;dataType=D"
-                  >
-                    Sky Striker Swordsoul Tenyi</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>51:58</td>
-                <td>12-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=33756649">33756649</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=33756649"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=Franco+Persano"
-                    >Franco Persano</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name=Other/Undefined&amp;dataType=D"
-                    >Other/Undefined</a
-                  >
-                </td>
-                <td><a href="dataPage?name= HERO&amp;dataType=D"> HERO</a></td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>19:27</td>
-                <td>10-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=33676811">33676811</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=33676811"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=ChinaNamba%231">ChinaNamba#1</a>
-                </td>
-                <td>
-                  <a href="dataPage?name=Other/Undefined&amp;dataType=D"
-                    >Other/Undefined</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name=Other/Undefined&amp;dataType=D"
-                    >Other/Undefined</a
-                  >
-                </td>
-                <td style="background-color: green; text-align: center">WON</td>
-                <td>23:13</td>
-                <td>10-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=33688620">33688620</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=33688620"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-              <tr class="table-row-hover">
-                <td>
-                  <a href="playerProfile?player=EmileLouisLaounizi"
-                    >EmileLouisLaounizi</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name=Other/Undefined&amp;dataType=D"
-                    >Other/Undefined</a
-                  >
-                </td>
-                <td>
-                  <a href="dataPage?name=Other/Undefined&amp;dataType=D"
-                    >Other/Undefined</a
-                  >
-                </td>
-                <td style="background-color: red; text-align: center">LOST</td>
-                <td>26:32</td>
-                <td>10-11-2021</td>
-                <td>MATCH</td>
-                <td><a href="log?id=33679151">33679151</a></td>
-                <td>
-                  <a href="https://www.duelingbook.com/replay?id=33679151"
-                    >Replay</a
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            >
+                <tbody>
+                <tr style="border: solid 1px white"></tr>
+                </tbody>
+                <colgroup>
+                    <col width="150"/>
+                    <col width="150"/>
+                    <col width="150"/>
+                    <col width="150"/>
+                    <col width="150"/>
+                    <col width="150"/>
+                    <col width="150"/>
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th>Opponent</th>
+                    <th>Player Deck</th>
+                    <th>Opponent Deck</th>
+                    <th>Result</th>
+                    <th>Duration</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Log</th>
+                    <th></th>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=whybotherthere"
+                        >whybotherthere</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
+                            Swordsoul Tenyi</a
+                        >
+                    </td>
+                    <td>
+                        <a
+                                href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
+                        >
+                            Swordsoul Tenyi Yang Zing</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>13:45</td>
+                    <td>05-12-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=34473786">34473786</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=34473786"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=ShootingBLS">ShootingBLS</a>
+                    </td>
+                    <td>
+                        <a
+                                href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
+                        >
+                            Swordsoul Tenyi Yang Zing</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Artifact Sky Striker&amp;dataType=D">
+                            Artifact Sky Striker</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>39:20</td>
+                    <td>26-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=34197706">34197706</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=34197706"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=Madison+Beer">Madison Beer</a>
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
+                            Swordsoul Tenyi</a
+                        >
+                    </td>
+                    <td>
+                        <a
+                                href="dataPage?name= Dogmatika HERO Invoked&amp;dataType=D"
+                        >
+                            Dogmatika HERO Invoked</a
+                        >
+                    </td>
+                    <td style="background-color: red; text-align: center">LOST</td>
+                    <td>25:09</td>
+                    <td>25-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=34174369">34174369</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=34174369"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=Thottie_Pippenn"
+                        >Thottie_Pippenn</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
+                            Swordsoul Tenyi</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Prank Kids&amp;dataType=D">
+                            Prank Kids</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>42:54</td>
+                    <td>25-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=34175444">34175444</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=34175444"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td><a href="playerProfile?player=HomeroDB">HomeroDB</a></td>
+                    <td>
+                        <a
+                                href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
+                        >
+                            Swordsoul Tenyi Yang Zing</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Dinosaur HERO&amp;dataType=D">
+                            Dinosaur HERO</a
+                        >
+                    </td>
+                    <td style="background-color: red; text-align: center">LOST</td>
+                    <td>16:10</td>
+                    <td>22-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=34082106">34082106</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=34082106"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=elijahthebear">elijahthebear</a>
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
+                            Swordsoul Tenyi</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Tri Brigade&amp;dataType=D">
+                            Tri Brigade</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>20:05</td>
+                    <td>22-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=34062914">34062914</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=34062914"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td><a href="playerProfile?player=Escapery">Escapery</a></td>
+                    <td>
+                        <a href="dataPage?name= Swordsoul&amp;dataType=D">
+                            Swordsoul</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Dogmatika Invoked&amp;dataType=D">
+                            Dogmatika Invoked</a
+                        >
+                    </td>
+                    <td style="background-color: red; text-align: center">LOST</td>
+                    <td>22:35</td>
+                    <td>22-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=34081351">34081351</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=34081351"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=JimmyWheeler">JimmyWheeler</a>
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
+                            Swordsoul Tenyi</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
+                            Swordsoul Tenyi</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>14:37</td>
+                    <td>22-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=34082646">34082646</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=34082646"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=Richard+Freitag"
+                        >Richard Freitag</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
+                            Swordsoul Tenyi</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Drytron HERO&amp;dataType=D">
+                            Drytron HERO</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>28:47</td>
+                    <td>22-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=34067344">34067344</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=34067344"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=loli+enthusiast"
+                        >loli enthusiast</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
+                            Swordsoul Tenyi</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= HERO Tri Brigade&amp;dataType=D">
+                            HERO Tri Brigade</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>23:44</td>
+                    <td>22-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=34083229">34083229</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=34083229"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=%7BLiGhT_KinGs%7DCptnFleming"
+                        >{LiGhT_KinGs}CptnFleming</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
+                            Swordsoul Tenyi</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Altergeist&amp;dataType=D">
+                            Altergeist</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>22:09</td>
+                    <td>17-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=33917634">33917634</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=33917634"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=I%27m+Sorry+Ms.+Jackson"
+                        >I&apos;m Sorry Ms. Jackson</a
+                        >
+                    </td>
+                    <td>
+                        <a
+                                href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
+                        >
+                            Swordsoul Tenyi Yang Zing</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= HERO Tri Brigade&amp;dataType=D">
+                            HERO Tri Brigade</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>24:19</td>
+                    <td>16-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=33893375">33893375</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=33893375"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td><a href="playerProfile?player=iLoveBeer">iLoveBeer</a></td>
+                    <td>
+                        <a
+                                href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
+                        >
+                            Swordsoul Tenyi Yang Zing</a
+                        >
+                    </td>
+                    <td>
+                        <a
+                                href="dataPage?name= Red Eyes Rokket Guardragon&amp;dataType=D"
+                        >
+                            Red Eyes Rokket Guardragon</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>44:47</td>
+                    <td>15-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=33839499">33839499</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=33839499"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td><a href="playerProfile?player=kd%2335">kd#35</a></td>
+                    <td>
+                        <a
+                                href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
+                        >
+                            Swordsoul Tenyi Yang Zing</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Floowandereeze&amp;dataType=D">
+                            Floowandereeze</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>26:47</td>
+                    <td>14-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=33822791">33822791</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=33822791"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td><a href="playerProfile?player=Innitbruv">Innitbruv</a></td>
+                    <td>
+                        <a href="dataPage?name= Swordsoul Tenyi&amp;dataType=D">
+                            Swordsoul Tenyi</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Prank Kids&amp;dataType=D">
+                            Prank Kids</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>30:43</td>
+                    <td>12-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=33742668">33742668</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=33742668"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td><a href="playerProfile?player=hera">hera</a></td>
+                    <td>
+                        <a
+                                href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
+                        >
+                            Swordsoul Tenyi Yang Zing</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name= Sky Striker&amp;dataType=D">
+                            Sky Striker</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>45:52</td>
+                    <td>12-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=33750197">33750197</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=33750197"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=%23OPUURPPPP%21">#OPUURPPPP!</a>
+                    </td>
+                    <td>
+                        <a
+                                href="dataPage?name= Swordsoul Tenyi Yang Zing&amp;dataType=D"
+                        >
+                            Swordsoul Tenyi Yang Zing</a
+                        >
+                    </td>
+                    <td>
+                        <a
+                                href="dataPage?name= Sky Striker Swordsoul Tenyi&amp;dataType=D"
+                        >
+                            Sky Striker Swordsoul Tenyi</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>51:58</td>
+                    <td>12-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=33756649">33756649</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=33756649"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=Franco+Persano"
+                        >Franco Persano</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name=Other/Undefined&amp;dataType=D"
+                        >Other/Undefined</a
+                        >
+                    </td>
+                    <td><a href="dataPage?name= HERO&amp;dataType=D"> HERO</a></td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>19:27</td>
+                    <td>10-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=33676811">33676811</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=33676811"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=ChinaNamba%231">ChinaNamba#1</a>
+                    </td>
+                    <td>
+                        <a href="dataPage?name=Other/Undefined&amp;dataType=D"
+                        >Other/Undefined</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name=Other/Undefined&amp;dataType=D"
+                        >Other/Undefined</a
+                        >
+                    </td>
+                    <td style="background-color: green; text-align: center">WON</td>
+                    <td>23:13</td>
+                    <td>10-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=33688620">33688620</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=33688620"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                <tr class="table-row-hover">
+                    <td>
+                        <a href="playerProfile?player=EmileLouisLaounizi"
+                        >EmileLouisLaounizi</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name=Other/Undefined&amp;dataType=D"
+                        >Other/Undefined</a
+                        >
+                    </td>
+                    <td>
+                        <a href="dataPage?name=Other/Undefined&amp;dataType=D"
+                        >Other/Undefined</a
+                        >
+                    </td>
+                    <td style="background-color: red; text-align: center">LOST</td>
+                    <td>26:32</td>
+                    <td>10-11-2021</td>
+                    <td>MATCH</td>
+                    <td><a href="log?id=33679151">33679151</a></td>
+                    <td>
+                        <a href="https://www.duelingbook.com/replay?id=33679151"
+                        >Replay</a
+                        >
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <br />
+        <br/>
         <h2>Most Played Decks</h2>
         <table
-          style="
+                style="
             border-collapse: separate;
             border-spacing: 5px;
             background-color: #153162;
             border: 1px solid white;
           "
         >
-          <tbody>
+            <tbody>
             <tr></tr>
-          </tbody>
-          <colgroup>
-            <col width="150" />
-            <col width="150" />
-          </colgroup>
-          <tbody>
+            </tbody>
+            <colgroup>
+                <col width="150"/>
+                <col width="150"/>
+            </colgroup>
+            <tbody>
             <tr>
-              <th>Name</th>
-              <th>Count</th>
+                <th>Name</th>
+                <th>Count</th>
             </tr>
             <tr>
-              <td>Cyber Angel Drytron</td>
-              <td>38</td>
+                <td>Cyber Angel Drytron</td>
+                <td>38</td>
             </tr>
             <tr>
-              <td>Cyber Angel Drytron Herald</td>
-              <td>43</td>
+                <td>Cyber Angel Drytron Herald</td>
+                <td>43</td>
             </tr>
             <tr>
-              <td>Drytron Herald</td>
-              <td>10</td>
+                <td>Drytron Herald</td>
+                <td>10</td>
             </tr>
             <tr>
-              <td>Eldlich</td>
-              <td>15</td>
+                <td>Eldlich</td>
+                <td>15</td>
             </tr>
             <tr>
-              <td>Herald</td>
-              <td>28</td>
+                <td>Herald</td>
+                <td>28</td>
             </tr>
             <tr>
-              <td>Infernoble</td>
-              <td>129</td>
+                <td>Infernoble</td>
+                <td>129</td>
             </tr>
             <tr>
-              <td>Mekk-Knight</td>
-              <td>4</td>
+                <td>Mekk-Knight</td>
+                <td>4</td>
             </tr>
             <tr>
-              <td>Rokket Guardragon</td>
-              <td>180</td>
+                <td>Rokket Guardragon</td>
+                <td>180</td>
             </tr>
             <tr>
-              <td>Swordsoul Tenyi</td>
-              <td>9</td>
+                <td>Swordsoul Tenyi</td>
+                <td>9</td>
             </tr>
             <tr>
-              <td>Tri Brigade</td>
-              <td>308</td>
+                <td>Tri Brigade</td>
+                <td>308</td>
             </tr>
             <tr>
-              <td>Yang Zing</td>
-              <td>14</td>
+                <td>Yang Zing</td>
+                <td>14</td>
             </tr>
             <tr>
-              <td>Empty</td>
-              <td>22</td>
+                <td>Empty</td>
+                <td>22</td>
             </tr>
             <tr>
-              <td>ABC Cyber Angel Drytron Herald</td>
-              <td>1</td>
+                <td>ABC Cyber Angel Drytron Herald</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>ABC Tri Brigade</td>
-              <td>1</td>
+                <td>ABC Tri Brigade</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Adamancipator Eldlich Zoodiac</td>
-              <td>1</td>
+                <td>Adamancipator Eldlich Zoodiac</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Adamancipator Prank Kids</td>
-              <td>5</td>
+                <td>Adamancipator Prank Kids</td>
+                <td>5</td>
             </tr>
             <tr>
-              <td>Adamancipator Red Eyes</td>
-              <td>1</td>
+                <td>Adamancipator Red Eyes</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Agent Cyber Angel Herald</td>
-              <td>9</td>
+                <td>Agent Cyber Angel Herald</td>
+                <td>9</td>
             </tr>
             <tr>
-              <td>Agent Cyber Angel Herald Invoked</td>
-              <td>1</td>
+                <td>Agent Cyber Angel Herald Invoked</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Agent Herald</td>
-              <td>4</td>
+                <td>Agent Herald</td>
+                <td>4</td>
             </tr>
             <tr>
-              <td>Altergeist</td>
-              <td>1</td>
+                <td>Altergeist</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Altergeist Dogmatika Eldlich Zoodiac</td>
-              <td>1</td>
+                <td>Altergeist Dogmatika Eldlich Zoodiac</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Artifact Mekk-Knight</td>
-              <td>1</td>
+                <td>Artifact Mekk-Knight</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Burning Abyss</td>
-              <td>1</td>
+                <td>Burning Abyss</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Burning Abyss Red Eyes</td>
-              <td>4</td>
+                <td>Burning Abyss Red Eyes</td>
+                <td>4</td>
             </tr>
             <tr>
-              <td>Cyber Angel</td>
-              <td>8</td>
+                <td>Cyber Angel</td>
+                <td>8</td>
             </tr>
             <tr>
-              <td>Cyber Angel Dogmatika Drytron</td>
-              <td>1</td>
+                <td>Cyber Angel Dogmatika Drytron</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Cyber Angel Drytron Herald Prank Kids</td>
-              <td>1</td>
+                <td>Cyber Angel Drytron Herald Prank Kids</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Cyber Angel Drytron Madolche</td>
-              <td>1</td>
+                <td>Cyber Angel Drytron Madolche</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Cyber Angel Herald</td>
-              <td>17</td>
+                <td>Cyber Angel Herald</td>
+                <td>17</td>
             </tr>
             <tr>
-              <td>Cyber Angel Herald Invoked</td>
-              <td>2</td>
+                <td>Cyber Angel Herald Invoked</td>
+                <td>2</td>
             </tr>
             <tr>
-              <td>Cyber Angel Invoked</td>
-              <td>1</td>
+                <td>Cyber Angel Invoked</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Cyberse Ignister</td>
-              <td>3</td>
+                <td>Cyberse Ignister</td>
+                <td>3</td>
             </tr>
             <tr>
-              <td>D.D. Infernoble</td>
-              <td>1</td>
+                <td>D.D. Infernoble</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>D.D. Red Eyes</td>
-              <td>2</td>
+                <td>D.D. Red Eyes</td>
+                <td>2</td>
             </tr>
             <tr>
-              <td>Dinosaur</td>
-              <td>12</td>
+                <td>Dinosaur</td>
+                <td>12</td>
             </tr>
             <tr>
-              <td>Dinosaur Dogmatika Eldlich Zoodiac</td>
-              <td>2</td>
+                <td>Dinosaur Dogmatika Eldlich Zoodiac</td>
+                <td>2</td>
             </tr>
             <tr>
-              <td>Dinosaur Virtual World</td>
-              <td>1</td>
+                <td>Dinosaur Virtual World</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Dinosaur Zoodiac</td>
-              <td>1</td>
+                <td>Dinosaur Zoodiac</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Dogmatika</td>
-              <td>5</td>
+                <td>Dogmatika</td>
+                <td>5</td>
             </tr>
             <tr>
-              <td>Dogmatika Eldlich</td>
-              <td>15</td>
+                <td>Dogmatika Eldlich</td>
+                <td>15</td>
             </tr>
             <tr>
-              <td>Dogmatika Eldlich Invoked</td>
-              <td>1</td>
+                <td>Dogmatika Eldlich Invoked</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Dogmatika Eldlich Invoked Zoodiac</td>
-              <td>1</td>
+                <td>Dogmatika Eldlich Invoked Zoodiac</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Dogmatika Eldlich Zoodiac</td>
-              <td>29</td>
+                <td>Dogmatika Eldlich Zoodiac</td>
+                <td>29</td>
             </tr>
             <tr>
-              <td>Dogmatika Invoked</td>
-              <td>3</td>
+                <td>Dogmatika Invoked</td>
+                <td>3</td>
             </tr>
             <tr>
-              <td>Dogmatika Invoked Salamangreat Shaddoll</td>
-              <td>1</td>
+                <td>Dogmatika Invoked Salamangreat Shaddoll</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Dogmatika Invoked Shaddoll</td>
-              <td>29</td>
+                <td>Dogmatika Invoked Shaddoll</td>
+                <td>29</td>
             </tr>
             <tr>
-              <td>Dogmatika Invoked Shaddoll Sky Striker</td>
-              <td>1</td>
+                <td>Dogmatika Invoked Shaddoll Sky Striker</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Dogmatika Invoked Shaddoll Thunder Dragon</td>
-              <td>1</td>
+                <td>Dogmatika Invoked Shaddoll Thunder Dragon</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Dogmatika Shaddoll</td>
-              <td>1</td>
+                <td>Dogmatika Shaddoll</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Dogmatika Zoodiac</td>
-              <td>1</td>
+                <td>Dogmatika Zoodiac</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Dragonmaid Rokket Guardragon</td>
-              <td>3</td>
+                <td>Dragonmaid Rokket Guardragon</td>
+                <td>3</td>
             </tr>
             <tr>
-              <td>Dragonmaid Zoodiac</td>
-              <td>1</td>
+                <td>Dragonmaid Zoodiac</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Drytron</td>
-              <td>27</td>
+                <td>Drytron</td>
+                <td>27</td>
             </tr>
             <tr>
-              <td>Drytron Eldlich</td>
-              <td>1</td>
+                <td>Drytron Eldlich</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Drytron Herald Red Eyes</td>
-              <td>1</td>
+                <td>Drytron Herald Red Eyes</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Drytron Sky Striker</td>
-              <td>1</td>
+                <td>Drytron Sky Striker</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Drytron Tri Brigade</td>
-              <td>1</td>
+                <td>Drytron Tri Brigade</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Eldlich Numeron Zexal Red Eyes</td>
-              <td>1</td>
+                <td>Eldlich Numeron Zexal Red Eyes</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Eldlich Red Eyes</td>
-              <td>4</td>
+                <td>Eldlich Red Eyes</td>
+                <td>4</td>
             </tr>
             <tr>
-              <td>Eldlich Virtual World</td>
-              <td>1</td>
+                <td>Eldlich Virtual World</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Eldlich Zoodiac</td>
-              <td>36</td>
+                <td>Eldlich Zoodiac</td>
+                <td>36</td>
             </tr>
             <tr>
-              <td>HERO</td>
-              <td>3</td>
+                <td>HERO</td>
+                <td>3</td>
             </tr>
             <tr>
-              <td>Igknight</td>
-              <td>1</td>
+                <td>Igknight</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Igknight Infernoble</td>
-              <td>4</td>
+                <td>Igknight Infernoble</td>
+                <td>4</td>
             </tr>
             <tr>
-              <td>Ignister</td>
-              <td>25</td>
+                <td>Ignister</td>
+                <td>25</td>
             </tr>
             <tr>
-              <td>Infernoble Invoked</td>
-              <td>1</td>
+                <td>Infernoble Invoked</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Infernoble Thunder Dragon</td>
-              <td>1</td>
+                <td>Infernoble Thunder Dragon</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Invoked</td>
-              <td>4</td>
+                <td>Invoked</td>
+                <td>4</td>
             </tr>
             <tr>
-              <td>Invoked Red Eyes Sky Striker</td>
-              <td>1</td>
+                <td>Invoked Red Eyes Sky Striker</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Invoked Shaddoll</td>
-              <td>2</td>
+                <td>Invoked Shaddoll</td>
+                <td>2</td>
             </tr>
             <tr>
-              <td>Invoked Tri Brigade</td>
-              <td>2</td>
+                <td>Invoked Tri Brigade</td>
+                <td>2</td>
             </tr>
             <tr>
-              <td>Invoked Virtual World</td>
-              <td>6</td>
+                <td>Invoked Virtual World</td>
+                <td>6</td>
             </tr>
             <tr>
-              <td>Invoked Yang Zing</td>
-              <td>1</td>
+                <td>Invoked Yang Zing</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Mekk-Knight World Legacy</td>
-              <td>2</td>
+                <td>Mekk-Knight World Legacy</td>
+                <td>2</td>
             </tr>
             <tr>
-              <td>Nekroz Virtual World</td>
-              <td>1</td>
+                <td>Nekroz Virtual World</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Numeron Zexal Red Eyes Subterror</td>
-              <td>1</td>
+                <td>Numeron Zexal Red Eyes Subterror</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Numeron Zexal Yang Zing</td>
-              <td>1</td>
+                <td>Numeron Zexal Yang Zing</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Orcust</td>
-              <td>2</td>
+                <td>Orcust</td>
+                <td>2</td>
             </tr>
             <tr>
-              <td>Prank Kids</td>
-              <td>40</td>
+                <td>Prank Kids</td>
+                <td>40</td>
             </tr>
             <tr>
-              <td>Prank Kids Tri Brigade</td>
-              <td>2</td>
+                <td>Prank Kids Tri Brigade</td>
+                <td>2</td>
             </tr>
             <tr>
-              <td>Red Eyes</td>
-              <td>5</td>
+                <td>Red Eyes</td>
+                <td>5</td>
             </tr>
             <tr>
-              <td>Red Eyes Rokket Guardragon</td>
-              <td>46</td>
+                <td>Red Eyes Rokket Guardragon</td>
+                <td>46</td>
             </tr>
             <tr>
-              <td>Red Eyes Subterror</td>
-              <td>1</td>
+                <td>Red Eyes Subterror</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Ritual Beast</td>
-              <td>1</td>
+                <td>Ritual Beast</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Salamangreat</td>
-              <td>22</td>
+                <td>Salamangreat</td>
+                <td>22</td>
             </tr>
             <tr>
-              <td>Salamangreat Tri Brigade</td>
-              <td>2</td>
+                <td>Salamangreat Tri Brigade</td>
+                <td>2</td>
             </tr>
             <tr>
-              <td>Sky Striker</td>
-              <td>5</td>
+                <td>Sky Striker</td>
+                <td>5</td>
             </tr>
             <tr>
-              <td>Swordsoul</td>
-              <td>1</td>
+                <td>Swordsoul</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Swordsoul Tenyi Yang Zing</td>
-              <td>7</td>
+                <td>Swordsoul Tenyi Yang Zing</td>
+                <td>7</td>
             </tr>
             <tr>
-              <td>Tri Brigade Virtual World</td>
-              <td>1</td>
+                <td>Tri Brigade Virtual World</td>
+                <td>1</td>
             </tr>
             <tr>
-              <td>Tri Brigade Zoodiac</td>
-              <td>22</td>
+                <td>Tri Brigade Zoodiac</td>
+                <td>22</td>
             </tr>
             <tr>
-              <td>Virtual World</td>
-              <td>91</td>
+                <td>Virtual World</td>
+                <td>91</td>
             </tr>
             <tr>
-              <td>Zoodiac</td>
-              <td>11</td>
+                <td>Zoodiac</td>
+                <td>11</td>
             </tr>
-          </tbody>
+            </tbody>
         </table>
-      </div>
     </div>
-    <section id="footer">
-      <div class="footer-wrapper">
+</div>
+<section id="footer">
+    <div class="footer-wrapper">
         <div class="footnotes">
-          <h2>YGOscope - The Yu-Gi-Oh! Data platform.</h2>
-          <a href="https://www.duelingbook.com">Powered by Duelingbook</a>
-          <a href="https://www.ygorganization.com"
+            <h2>YGOscope - The Yu-Gi-Oh! Data platform.</h2>
+            <a href="https://www.duelingbook.com">Powered by Duelingbook</a>
+            <a href="https://www.ygorganization.com"
             >Affiliated with YGOrganization</a
-          >
-          <hr />
-          <div class="footer-links">
-            <ul style="margin-bottom: 0px">
-              <li><a href="about">About</a></li>
-              <li><a href="contact">Contact</a></li>
-              <li><a href="faq">FAQ</a></li>
-              <li><a href="deckdefinitions">Deck Definitions</a></li>
-              <li><a href="patches">Patch Notes</a></li>
-              <li><a href="terms">Terms</a></li>
-            </ul>
-          </div>
+            >
+            <hr/>
+            <div class="footer-links">
+                <ul style="margin-bottom: 0px">
+                    <li><a href="about">About</a></li>
+                    <li><a href="contact">Contact</a></li>
+                    <li><a href="faq">FAQ</a></li>
+                    <li><a href="deckdefinitions">Deck Definitions</a></li>
+                    <li><a href="patches">Patch Notes</a></li>
+                    <li><a href="terms">Terms</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </section>
-  </body>
+    </div>
+</section>
+</body>
 </html>
